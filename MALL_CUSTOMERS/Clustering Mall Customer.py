@@ -22,6 +22,12 @@ Conn = sqlite3.connect('C:\Jeison\Python\MALL_CUSTOMERS\Mall_Customers.db')
 
 Mall_Customers = pd.read_sql_query('SELECT * FROM Mall_Customers', Conn)
 
+Mall_Customers_1 = Mall_Customers.iloc[:,[2,3,4]]
+
+print(Mall_Customers_1.corr('pearson'))
+
+print(Mall_Customers_1.shape)
+
 print(Mall_Customers.shape)
 
 print(Mall_Customers.isnull().sum())
@@ -42,6 +48,7 @@ a = Mall_Customers.iloc[:,[2]].values
 
 sns.pairplot(Mall_Customers)
 plt.show()
+
 
 
 print (X.shape)
@@ -102,20 +109,20 @@ plt.ylabel('wcss')
 plt.grid()
 plt.show()
 
-kmeansmodel = KMeans(n_clusters= 4, init ='k-means++', random_state=0)
-y_Predict_1 = kmeansmodel.fit_predict(X_1)
+# kmeansmodel = KMeans(n_clusters= 4, init ='k-means++', random_state=0)
+# y_Predict_1 = kmeansmodel.fit_predict(X_1)
 
-print(y_Predict_1)
+# print(y_Predict_1)
 
 
-plt.scatter(X_1[y_Predict_1 == 0, 0], X_1[y_Predict_1 == 0, 1], s = 100, c = 'red', label = 'Cluster 1')
-plt.scatter(X_1[y_Predict_1 == 1, 0], X_1[y_Predict_1 == 1, 1], s = 100, c = 'blue', label = 'Cluster 2')
-plt.scatter(X_1[y_Predict_1 == 2, 0], X_1[y_Predict_1 == 2, 1], s = 100, c = 'green', label = 'Cluster 3')
-plt.scatter(X_1[y_Predict_1 == 3, 0], X_1[y_Predict_1 == 3, 1], s = 100, c = 'cyan', label = 'Cluster 4')
-plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s = 300, c = 'yellow', label = 'Centroids')
-plt.title('Clusters of customers')
-plt.xlabel('Age')
-plt.ylabel('Spending Score (1-100)')
-plt.legend()
-plt.grid()
-plt.show()
+# plt.scatter(X_1[y_Predict_1 == 0, 0], X_1[y_Predict_1 == 0, 1], s = 100, c = 'red', label = 'Cluster 1')
+# plt.scatter(X_1[y_Predict_1 == 1, 0], X_1[y_Predict_1 == 1, 1], s = 100, c = 'blue', label = 'Cluster 2')
+# plt.scatter(X_1[y_Predict_1 == 2, 0], X_1[y_Predict_1 == 2, 1], s = 100, c = 'green', label = 'Cluster 3')
+# plt.scatter(X_1[y_Predict_1 == 3, 0], X_1[y_Predict_1 == 3, 1], s = 100, c = 'cyan', label = 'Cluster 4')
+# plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s = 300, c = 'yellow', label = 'Centroids')
+# plt.title('Clusters of customers')
+# plt.xlabel('Age')
+# plt.ylabel('Spending Score (1-100)')
+# plt.legend()
+# plt.grid()
+# plt.show()
