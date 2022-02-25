@@ -24,6 +24,7 @@ Mall_Customers = pd.read_sql_query('SELECT * FROM Mall_Customers', Conn)
 
 Mall_Customers_1 = Mall_Customers.iloc[:,[2,3,4]]
 
+
 print(Mall_Customers_1.corr('pearson'))
 
 print(Mall_Customers_1.shape)
